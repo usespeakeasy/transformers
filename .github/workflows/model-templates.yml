@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v1.2.0
 
       - name: Install Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v1.2.4
         with:
           python-version: 3.6
 
@@ -67,7 +67,7 @@ jobs:
 
       - name: Test suite reports artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: run_all_tests_templates_test_reports
           path: reports

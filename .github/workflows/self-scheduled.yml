@@ -24,7 +24,7 @@ jobs:
       options: --gpus 0 --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     steps:
       - name: Launcher docker
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.8.0
 
       - name: NVIDIA-SMI
         run: |
@@ -80,7 +80,7 @@ jobs:
 
       - name: Test suite reports artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: run_all_tests_torch_gpu_test_reports
           path: reports
@@ -92,7 +92,7 @@ jobs:
       options: --gpus 0 --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     steps:
       - name: Launcher docker
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.8.0
 
       - name: NVIDIA-SMI
         run: |
@@ -135,7 +135,7 @@ jobs:
 
       - name: Test suite reports artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: run_all_tests_tf_gpu_test_reports
           path: reports
@@ -147,7 +147,7 @@ jobs:
       options: --gpus all --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     steps:
       - name: Launcher docker
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.8.0
 
       - name: NVIDIA-SMI
         continue-on-error: true
@@ -190,7 +190,7 @@ jobs:
 
       - name: Test suite reports artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: run_all_tests_torch_multi_gpu_test_reports
           path: reports
@@ -202,7 +202,7 @@ jobs:
       options: --gpus all --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     steps:
       - name: Launcher docker
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.8.0
 
       - name: NVIDIA-SMI
         continue-on-error: true
@@ -246,7 +246,7 @@ jobs:
 
       - name: Test suite reports artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: run_all_tests_tf_multi_gpu_test_reports
           path: reports
@@ -258,7 +258,7 @@ jobs:
       options: --gpus 0 --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     steps:
       - name: Launcher docker
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.8.0
 
       - name: NVIDIA-SMI
         run: |
@@ -287,7 +287,7 @@ jobs:
 
       - name: Test suite reports artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: run_tests_torch_cuda_extensions_gpu_test_reports
           path: reports
@@ -299,7 +299,7 @@ jobs:
       options: --gpus 0 --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     steps:
       - name: Launcher docker
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.8.0
 
       - name: NVIDIA-SMI
         continue-on-error: true
@@ -329,7 +329,7 @@ jobs:
 
       - name: Test suite reports artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: run_tests_torch_cuda_extensions_multi_gpu_test_reports
           path: reports
@@ -347,9 +347,9 @@ jobs:
         run_all_tests_torch_cuda_extensions_multi_gpu
     ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.8.0
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v2.1.1
 
       - name: Send message to Slack
         env:
