@@ -18,7 +18,7 @@ jobs:
     - name: Check branch name
       run: echo $BRANCH
     - name: Set up Python
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v1.2.4
       with:
         python-version: 3.7
 

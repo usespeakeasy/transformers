@@ -25,7 +25,7 @@ jobs:
       options: --gpus 0 --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     steps:
       - name: Launcher docker
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.8.0
 
       - name: NVIDIA-SMI
         run: |

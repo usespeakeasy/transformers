@@ -36,7 +36,7 @@ jobs:
           pip install .[sklearn,testing,onnxruntime,sentencepiece,speech,vision,timm]
 
       - name: Launcher docker
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.8.0
         with:
           fetch-depth: 2
 
@@ -56,7 +56,7 @@ jobs:
           python utils/tests_fetcher.py --diff_with_last_commit | tee test_preparation.txt
 
       - name: Report fetched tests
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: test_fetched
           path: test_preparation.txt
@@ -73,7 +73,7 @@ jobs:
 
       - name: Test suite reports artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: run_all_tests_torch_gpu_test_reports
           path: reports
@@ -150,7 +150,7 @@ jobs:
           pip install .[sklearn,testing,onnxruntime,sentencepiece,speech,vision,timm]
       
       - name: Launcher docker
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.8.0
         with:
           fetch-depth: 2
 
@@ -171,7 +171,7 @@ jobs:
           python utils/tests_fetcher.py --diff_with_last_commit | tee test_preparation.txt
 
       - name: Report fetched tests
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: test_fetched
           path: test_preparation.txt
@@ -190,7 +190,7 @@ jobs:
 
       - name: Test suite reports artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: run_all_tests_torch_multi_gpu_test_reports
           path: reports
@@ -259,7 +259,7 @@ jobs:
       options: --gpus 0 --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     steps:
       - name: Launcher docker
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.8.0
         with:
           fetch-depth: 2
 
@@ -285,7 +285,7 @@ jobs:
           python utils/tests_fetcher.py --diff_with_last_commit --filters tests/deepspeed tests/extended | tee test_preparation.txt
       
       - name: Report fetched tests
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: test_fetched
           path: test_preparation.txt
@@ -302,7 +302,7 @@ jobs:
 
       - name: Test suite reports artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: run_tests_torch_cuda_extensions_gpu_test_reports
           path: reports
@@ -314,7 +314,7 @@ jobs:
       options: --gpus 0 --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     steps:
       - name: Launcher docker
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.8.0
         with:
           fetch-depth: 2
 
@@ -341,7 +341,7 @@ jobs:
           python utils/tests_fetcher.py --diff_with_last_commit --filters tests/deepspeed tests/extended | tee test_preparation.txt
 
       - name: Report fetched tests
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: test_fetched
           path: test_preparation.txt
@@ -358,7 +358,7 @@ jobs:
 
       - name: Test suite reports artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: run_tests_torch_cuda_extensions_multi_gpu_test_reports
           path: reports
@@ -377,9 +377,9 @@ jobs:
         run_tests_torch_cuda_extensions_multi_gpu
     ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.8.0
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v2.1.1
 
       - name: Send message to Slack
         env:
